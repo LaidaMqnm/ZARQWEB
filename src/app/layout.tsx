@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { VisitorProvider } from "@/lib/personalization";
+import SiteNav from "@/components/SiteNav";
 
 export const metadata: Metadata = {
   title: "NEEDMONEY4MUSIC.COM",
@@ -30,7 +31,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <VisitorProvider>{children}</VisitorProvider>
+        <VisitorProvider>
+          <SiteNav />
+          {children}
+        </VisitorProvider>
       </body>
     </html>
   );

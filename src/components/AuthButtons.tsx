@@ -11,12 +11,11 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useVisitor } from "@/lib/personalization";
 
-type Provider = "google" | "spotify" | "apple";
+type Provider = "google" | "spotify";
 
 const LABELS: Record<Provider, string> = {
   google: "Google",
   spotify: "Spotify",
-  apple: "Apple Music",
 };
 
 export default function AuthButtons() {
@@ -52,7 +51,7 @@ export default function AuthButtons() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 360 }}>
-      {(["spotify", "google", "apple"] as Provider[]).map((p) => (
+      {(["spotify", "google"] as Provider[]).map((p) => (
         <button
           key={p}
           className="w95-button"

@@ -91,7 +91,7 @@ export default function RetroPlayer({ artistUrl }: { artistUrl?: string }) {
   }
 
   return (
-    <div className="win" style={{ width: 280 }}>
+    <div className="win" style={{ width: 280, maxWidth: "100%" }}>
       <div className="win__title">
         <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
           <span style={{ color: "#1db954" }}>◉</span> Spotify

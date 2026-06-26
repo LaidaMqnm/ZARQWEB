@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AsciiBackground from "@/components/AsciiBackground";
 import Countdown from "@/components/Countdown";
 import AuthButtons from "@/components/AuthButtons";
 
@@ -9,7 +8,6 @@ export default function ProximoPage() {
   const presave = process.env.NEXT_PUBLIC_PRESAVE_URL;
   return (
     <>
-      <AsciiBackground />
       <main
         style={{
           position: "relative",
@@ -22,7 +20,7 @@ export default function ProximoPage() {
           alignItems: "center",
           gap: 28,
           textAlign: "center",
-          minHeight: "100vh",
+          minHeight: "calc(100vh - var(--nav-h))",
           justifyContent: "center",
         }}
       >

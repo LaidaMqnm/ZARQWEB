@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AsciiBackground from "@/components/AsciiBackground";
 import { TRACKS, uriToEmbedSrc } from "@/lib/tracks";
 
 export const metadata = { title: "MÚSICA — needmoney4music" };
@@ -12,7 +11,6 @@ export default function MusicaPage() {
   const real = TRACKS.filter((t) => !t.spotifyUri.includes("REEMPLAZA"));
   return (
     <>
-      <AsciiBackground />
       <main style={{ position: "relative", zIndex: 2, padding: "clamp(20px,3vw,48px)", maxWidth: 760, margin: "0 auto" }}>
         <Link className="underline-link" href="/">← volver</Link>
         <h1 className="wordmark" style={{ fontSize: "clamp(34px,7vw,80px)", margin: "16px 0 24px" }}>MÚSICA</h1>

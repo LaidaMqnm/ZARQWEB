@@ -1,8 +1,7 @@
-import AsciiBackground from "@/components/AsciiBackground";
 import NameGate from "@/components/NameGate";
 import Wordmark from "@/components/Wordmark";
 import NavTag from "@/components/NavTag";
-import PointCloudFigure from "@/components/PointCloudFigure";
+import AsciiArt from "@/components/AsciiArt";
 import RetroPlayer from "@/components/RetroPlayer";
 import SubCounter from "@/components/SubCounter";
 import GalleryFrame from "@/components/GalleryFrame";
@@ -21,71 +20,75 @@ const ARTIST_URL = process.env.NEXT_PUBLIC_SPOTIFY_ARTIST_ID
 export default function Home() {
   return (
     <>
-      <AsciiBackground />
       <NameGate />
 
       <main style={{ position: "relative", zIndex: 2 }}>
         {/* ============ HERO ============ */}
         <section
           style={{
-            minHeight: "100vh",
-            padding: "clamp(20px, 3vw, 48px)",
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 24,
+            minHeight: "calc(100vh - var(--nav-h))",
+            padding: "clamp(28px, 5vw, 64px) clamp(16px, 5vw, 48px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            gap: "clamp(18px, 2.6vw, 30px)",
           }}
         >
-          <Wordmark />
-
-          {/* Fila redes */}
-          <nav style={{ display: "flex", gap: 16, flexWrap: "wrap" }} aria-label="Redes">
-            {SOCIAL.map((s) => (
-              <a key={s.label} className="underline-link" href={s.href} target="_blank" rel="noreferrer">
-                {s.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Cuerpo del hero: intro | figura | reproductor */}
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(240px, 1fr) minmax(260px, 1.1fr) auto",
-              gap: 24,
-              alignItems: "start",
+              width: "100%",
+              maxWidth: 1080,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "clamp(18px, 2.6vw, 30px)",
             }}
-            className="hero-grid"
           >
-            {/* Columna izquierda: intro + tags */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 28, maxWidth: 380 }}>
-              <p style={{ fontSize: 16, lineHeight: 1.4, maxWidth: 360 }}>
-                Hola, soy <strong>David Eduardo Ramos Manríquez</strong>, un artista creativo y
-                músico independiente. Me inspiro en las vivencias pero mi arte es de libre
-                interpretación. Trabajo con proyectos de dirección creativa que busquen
-                trascender conmigo.
-              </p>
-              <a className="underline-link" href="mailto:zarq@needmoney4music.com" style={{ fontSize: 15, width: "fit-content" }}>
-                zarq@needmoney4music.com
-              </a>
-              <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <NavTag label="[PRÓXIMO LANZAMIENTO]" href="/proximo-lanzamiento" />
-                <NavTag label="[GALERÍA]" href="/galeria" />
-                <NavTag label="[MÚSICA]" href="/musica" />
-              </div>
+            {/* Wordmark centrado */}
+            <div style={{ width: "100%" }}>
+              <Wordmark />
             </div>
 
-            {/* Columna central: figura point-cloud */}
-            <div style={{ display: "grid", placeItems: "center" }}>
-              <PointCloudFigure />
+            {/* Redes */}
+            <nav style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }} aria-label="Redes">
+              {SOCIAL.map((s) => (
+                <a key={s.label} className="underline-link" href={s.href} target="_blank" rel="noreferrer">
+                  {s.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Arte ASCII anclado: pieza central de la pantalla */}
+            <div className="ascii-col" style={{ display: "grid", placeItems: "center", width: "100%" }}>
+              <AsciiArt />
             </div>
 
-            {/* Columna derecha: reproductor retro */}
-            <div style={{ justifySelf: "end" }}>
+            {/* Intro */}
+            <p style={{ fontSize: "clamp(14px, 1.5vw, 17px)", lineHeight: 1.55, maxWidth: 560 }}>
+              Hola, soy <strong>David Eduardo Ramos Manríquez</strong>, un artista creativo y
+              músico independiente. Me inspiro en las vivencias pero mi arte es de libre
+              interpretación. Trabajo con proyectos de dirección creativa que busquen
+              trascender conmigo.
+            </p>
+
+            <a className="underline-link" href="mailto:zarq@needmoney4music.com" style={{ fontSize: 15 }}>
+              zarq@needmoney4music.com
+            </a>
+
+            {/* Navegación destacada */}
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
+              <NavTag label="[PRÓXIMO LANZAMIENTO]" href="/proximo-lanzamiento" />
+              <NavTag label="[GALERÍA]" href="/galeria" />
+              <NavTag label="[MÚSICA]" href="/musica" />
+            </div>
+
+            {/* Reproductor */}
+            <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
               <RetroPlayer artistUrl={ARTIST_URL} />
             </div>
-          </div>
 
-          <div style={{ textAlign: "center", marginTop: 8 }}>
             <a href="#millon" className="blink" style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>
               ▼ baja para entrar al millón ▼
             </a>
@@ -98,7 +101,7 @@ export default function Home() {
           style={{
             minHeight: "100vh",
             background: "rgba(255,255,255,0.92)",
-            padding: "clamp(28px, 5vw, 72px)",
+            padding: "clamp(28px, 5vw, 72px) clamp(20px, 5vw, 80px)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -106,20 +109,22 @@ export default function Home() {
             textAlign: "center",
           }}
         >
-          <h2 style={{ fontSize: "clamp(34px, 7vw, 92px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 0.95 }}>
-            A POR EL <span style={{ fontStyle: "italic" }}>MILLÓN</span> DE SUBS
-          </h2>
-          <p style={{ fontSize: "clamp(15px, 2vw, 20px)", fontWeight: 700, letterSpacing: "-0.01em" }}>
-            ¡REGÍSTRATE CON GOOGLE, SPOTIFY O APPLE MUSIC!
-          </p>
+          <div style={{ maxWidth: 860, width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 28 }}>
+            <h2 style={{ fontSize: "clamp(34px, 7vw, 92px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 0.95 }}>
+              A POR EL <span style={{ fontStyle: "italic" }}>MILLÓN</span> DE SUBS
+            </h2>
+            <p style={{ fontSize: "clamp(15px, 2vw, 20px)", fontWeight: 700, letterSpacing: "-0.01em" }}>
+              ¡REGÍSTRATE CON GOOGLE, SPOTIFY O APPLE MUSIC!
+            </p>
 
-          <SubCounter />
-          <GalleryFrame />
-          <AuthButtons />
+            <SubCounter />
+            <GalleryFrame />
+            <AuthButtons />
 
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#666", maxWidth: 420 }}>
-            Cuando entras a la lista, tu nombre se queda en el proyecto. Eres parte del millón.
-          </p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#666", maxWidth: 420 }}>
+              Cuando entras a la lista, tu nombre se queda en el proyecto. Eres parte del millón.
+            </p>
+          </div>
         </section>
       </main>
     </>

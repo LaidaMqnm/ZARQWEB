@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AsciiBackground from "@/components/AsciiBackground";
 import GalleryFrame from "@/components/GalleryFrame";
 
 export const metadata = { title: "GALERÍA — needmoney4music" };
@@ -15,7 +14,6 @@ const WORKS = [
 export default function GaleriaPage() {
   return (
     <>
-      <AsciiBackground />
       <main style={{ position: "relative", zIndex: 2, padding: "clamp(20px,3vw,48px)", maxWidth: 1000, margin: "0 auto" }}>
         <Link className="underline-link" href="/">← volver</Link>
         <h1 className="wordmark" style={{ fontSize: "clamp(34px,7vw,80px)", margin: "16px 0 8px" }}>GALERÍA</h1>
