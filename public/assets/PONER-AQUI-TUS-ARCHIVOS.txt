@@ -1,0 +1,11 @@
+Coloca aquí tus imágenes:
+
+  figure.png   -> tu foto recortada (PNG con fondo transparente) para la
+                  figura point-cloud del hero. Idealmente 700x1100 px aprox.
+
+  work/1.jpg, work/2.jpg ...  -> piezas de la galería (opcional).
+
+  release.mp4  -> video/visualizer para el panel azul (opcional). Luego
+                  pásalo a <GalleryFrame videoSrc="/assets/release.mp4" />.
+
+Si no pones figure.png, la figura usa una silueta de partículas de respaldo.
